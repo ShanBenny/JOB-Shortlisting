@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: 0 auto; text-align: center; }
+        .score { font-size: 24px; margin: 20px 0; }
+        .category { 
+            font-size: 20px; 
+            padding: 10px; 
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .excellent { background-color: #4CAF50; color: white; }
+        .high { background-color: #8BC34A; color: white; }
+        .medium { background-color: #FFC107; color: black; }
+        .low { background-color: #F44336; color: white; }
+        .eligibility { font-size: 18px; margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Application Result</h1>
+        <div class="score">
+            Similarity Score: {{ "%.2f"|format(score * 100) }}%
+        </div>
+        
+        <div class="category {{ category|lower }}">
+            {{ category }} Match
+        </div>
+        
+        <div class="eligibility">
+            {{ eligibility }}
+        </div>
+        
+        <div class="feedback">
+            {% if score >= 0.8 %}
+            🎉 This candidate is an ideal fit!
+            {% elif score >= 0.6 %}
+            👍 Strong potential candidate
+            {% elif score >= 0.4 %}
+            🤔 Worth further review
+            {% else %}
+            ❌ Not recommended
+            {% endif %}
+        </div>
+        
+        <a href="/" style="margin-top: 20px; display: block; font-style: italic; color:darkgray;">Upload Another</a>
+    </div>
+</body>
+</html>

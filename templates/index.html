@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Shortlisting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Job Shortlisting System</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="resume">Upload Resume (PDF or TXT):</label>
+        <input type="file" name="resume" id="resume" accept=".pdf,.txt" required>
+        <br>
+        <label for="job_description">Upload Job Description (PDF or TXT):</label>
+        <input type="file" name="job_description" id="job_description" accept=".pdf,.txt" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
